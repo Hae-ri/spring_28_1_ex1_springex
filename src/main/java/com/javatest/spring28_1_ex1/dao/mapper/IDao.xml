@@ -12,16 +12,19 @@
 	</select>
 	
 	<insert id="writeDao">
+	<!-- where 절 -->
 	
 	
 	</insert>
 	
 	<select id="viewDao">
+	<!-- where 절 -->
 	
 	
 	</select>
 	
 	<delete id="deleteDao">
+	<!-- where 절 -->
 	
 	
 	</delete>
