@@ -1,1 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- mapper 선언 -->
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.javatest.spring28_1_ex1.dao.IDao"> <!-- 인터페이스 -->
+	
+	<select id="listDao" resultType="com.javatest.spring28_1_ex1.dto.ContentDto">
+	<!-- 반환값이 있는 경우 리절트타입을 패키지명과 함게 기재 -->
+		select * from board order by mid DESC
+	</select>
+	
+	<insert id="writeDao">
+	
+	
+	</insert>
+	
+	<select id="viewDao">
+	
+	
+	</select>
+	
+	<delete id="deleteDao">
+	
+	
+	</delete>
+
+
+</mapper>

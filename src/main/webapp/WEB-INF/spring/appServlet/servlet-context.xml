@@ -41,7 +41,9 @@
    		<beans:property name="dataSource" ref="dataSource"></beans:property>
    		<beans:property name="mapperLocations" value="classpath:com/javatest/spring28_1_ex1/dao/mapper/*.xml"></beans:property>
 	</beans:bean>
-   
+	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg index="0" ref="sqlSessionFactory"></beans:constructor-arg>
+	</beans:bean>
 	
 	<context:component-scan base-package="com.javatest.spring28_1_ex1" />
 	
