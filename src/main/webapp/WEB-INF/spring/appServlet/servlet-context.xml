@@ -29,6 +29,9 @@
 	   <beans:property name="username" value="scott"/>
 	   <beans:property name="password" value ="tiger"/>
 	</beans:bean>
+	
+	
+	<!-- 
 	<beans:bean name="template" class="org.springframework.jdbc.core.JdbcTemplate">
 	   <beans:property name="dataSource" ref="dataSource"></beans:property>
 	</beans:bean>
@@ -36,7 +39,9 @@
 	<beans:bean name="dao" class="com.javatest.spring28_1_ex1.dao.ContentDao">
 		<beans:property name="template" ref="template"></beans:property>
 	</beans:bean>
-   
+    -->
+    
+    
 	<beans:bean name="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
    		<beans:property name="dataSource" ref="dataSource"></beans:property>
    		<beans:property name="mapperLocations" value="classpath:com/javatest/spring28_1_ex1/dao/mapper/*.xml"></beans:property>

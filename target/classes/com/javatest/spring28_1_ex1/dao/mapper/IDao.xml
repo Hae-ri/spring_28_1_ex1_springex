@@ -7,26 +7,23 @@
 <mapper namespace="com.javatest.spring28_1_ex1.dao.IDao"> <!-- 인터페이스 -->
 	
 	<select id="listDao" resultType="com.javatest.spring28_1_ex1.dto.ContentDto">
-	<!-- 반환값이 있는 경우 리절트타입을 패키지명과 함게 기재 -->
+	<!-- 반환값이 있는 경우(select) 리절트타입을 패키지명과 함게 기재 -->
 		select * from board order by mid DESC
 	</select>
 	
 	<insert id="writeDao">
 	<!-- where 절 -->
-	
-	
+		insert into board (mid, mwriter, mcontent) values (BOARD_SEQ.nextval,#{param1},#{param2})
 	</insert>
 	
 	<select id="viewDao">
 	<!-- where 절 -->
-	
-	
+		SELECT * FROM mvc_board WHERE bId=#{param1}
 	</select>
 	
 	<delete id="deleteDao">
 	<!-- where 절 -->
-	
-	
+		delete from board where mid=#{param1}
 	</delete>
 
 

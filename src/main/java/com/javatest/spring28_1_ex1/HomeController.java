@@ -16,7 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.javatest.spring28_1_ex1.dao.ContentDao;
+//import com.javatest.spring28_1_ex1.dao.ContentDao;
 import com.javatest.spring28_1_ex1.dao.IDao;
 import com.javatest.spring28_1_ex1.dto.ContentDto;
 
@@ -28,12 +28,12 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	ContentDao dao;
-	
-	@Autowired // controller가 실행될 때 자동으로 dao 생성
-	public void setDao(ContentDao dao) {
-		this.dao = dao;
-	}
+//	ContentDao dao;
+//	
+//	@Autowired // controller가 실행될 때 자동으로 dao 생성
+//	public void setDao(ContentDao dao) {
+//		this.dao = dao;
+//	}
 	
 	@Autowired
 	private SqlSession sqlSession; // setter 없이 자동으로 불러옴
@@ -61,8 +61,8 @@ public class HomeController {
 	public String list(Model model) {
 		//ArrayList<ContentDto> dtos = dao.listDao();
 		IDao dao = sqlSession.getMapper(IDao.class);
-		
 		model.addAttribute("list", dao.listDao());
+		
 		return "list";
 	}
 	
@@ -73,6 +73,8 @@ public class HomeController {
 	
 	@RequestMapping("/write")
 	public String write(HttpServletRequest request) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
 		dao.writeDao(request.getParameter("mwriter"),request.getParameter("mcontent"));
 		
 		return "redirect:list";
@@ -80,6 +82,8 @@ public class HomeController {
 	
 	@RequestMapping("/delete")
 	public String delete(HttpServletRequest request) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
 		dao.deleteDao(request.getParameter("mid"));
 		
 		return "redirect:list";
@@ -87,9 +91,11 @@ public class HomeController {
 	
 	@RequestMapping("/view")
 	public String view(HttpServletRequest request, Model model) {
-		ContentDto dto = dao.viewDao(request.getParameter("mid"));
 		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		ContentDto dto = dao.viewDao(request.getParameter("mid"));	
 		model.addAttribute("dto", dto);
+		
 		return "view";
 	}
 	
